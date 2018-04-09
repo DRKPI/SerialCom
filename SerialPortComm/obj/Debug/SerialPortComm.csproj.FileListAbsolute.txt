@@ -1,0 +1,9 @@
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\bin\Debug\SerialPortComm.exe.config
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\bin\Debug\SerialPortComm.exe
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\bin\Debug\SerialPortComm.pdb
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.csprojResolveAssemblyReference.cache
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.FormSerialComm.resources
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.Properties.Resources.resources
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.csproj.GenerateResource.Cache
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.exe
+c:\users\d_nko\documents\visual studio 2017\Projects\SerialPortComm\SerialPortComm\obj\Debug\SerialPortComm.pdb
