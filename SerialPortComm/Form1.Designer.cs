@@ -32,8 +32,8 @@
             this.comboBoxDisplayPorts = new System.Windows.Forms.ComboBox();
             this.comboBoxDisplayBaudRate = new System.Windows.Forms.ComboBox();
             this.grpBoxSend = new System.Windows.Forms.GroupBox();
-            this.txtBoxSendMsg = new System.Windows.Forms.TextBox();
             this.btnSendMsg = new System.Windows.Forms.Button();
+            this.txtBoxSendMsg = new System.Windows.Forms.TextBox();
             this.grpBoxReceivedMsg = new System.Windows.Forms.GroupBox();
             this.btnReadMsg = new System.Windows.Forms.Button();
             this.txtBoxReceivedMsg = new System.Windows.Forms.TextBox();
@@ -50,8 +50,8 @@
             this.comboBoxDisplayPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDisplayPorts.FormattingEnabled = true;
             this.comboBoxDisplayPorts.Items.AddRange(new object[] {
-            "com1",
-            "com2"});
+            "com1_Test",
+            "com2_Test"});
             this.comboBoxDisplayPorts.Location = new System.Drawing.Point(23, 115);
             this.comboBoxDisplayPorts.Name = "comboBoxDisplayPorts";
             this.comboBoxDisplayPorts.Size = new System.Drawing.Size(266, 28);
@@ -80,15 +80,6 @@
             this.grpBoxSend.TabStop = false;
             this.grpBoxSend.Text = "Send Message";
             // 
-            // txtBoxSendMsg
-            // 
-            this.txtBoxSendMsg.Enabled = false;
-            this.txtBoxSendMsg.Location = new System.Drawing.Point(18, 34);
-            this.txtBoxSendMsg.Multiline = true;
-            this.txtBoxSendMsg.Name = "txtBoxSendMsg";
-            this.txtBoxSendMsg.Size = new System.Drawing.Size(293, 255);
-            this.txtBoxSendMsg.TabIndex = 0;
-            // 
             // btnSendMsg
             // 
             this.btnSendMsg.Enabled = false;
@@ -99,6 +90,15 @@
             this.btnSendMsg.Text = "Send";
             this.btnSendMsg.UseVisualStyleBackColor = true;
             this.btnSendMsg.Click += new System.EventHandler(this.btnSendMsg_Click);
+            // 
+            // txtBoxSendMsg
+            // 
+            this.txtBoxSendMsg.Enabled = false;
+            this.txtBoxSendMsg.Location = new System.Drawing.Point(18, 34);
+            this.txtBoxSendMsg.Multiline = true;
+            this.txtBoxSendMsg.Name = "txtBoxSendMsg";
+            this.txtBoxSendMsg.Size = new System.Drawing.Size(293, 255);
+            this.txtBoxSendMsg.TabIndex = 0;
             // 
             // grpBoxReceivedMsg
             // 

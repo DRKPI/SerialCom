@@ -13,6 +13,9 @@ namespace SerialPortComm
 {
     public partial class FormSerialComm : Form
     {
+        //Test variable
+        bool DEBUG = true;
+
         public FormSerialComm()
         {
             InitializeComponent();
@@ -23,7 +26,10 @@ namespace SerialPortComm
         void getAvailablePorts()
         {
             string[] ports = SerialPort.GetPortNames();
-            
+
+            // TODO   Figure out how to get ports array into comboBoxDisplayPorts  -- for now I hard coded a couple ports for testing
+            comboBoxDisplayPorts.Items.AddRange(ports);
+
         }
 
         // Open port connection
@@ -38,7 +44,7 @@ namespace SerialPortComm
                 else
                 {
                     serialPort1.PortName = comboBoxDisplayPorts.Text;
-                    serialPort1.BaudRate = Convert.ToInt32(comboBoxDisplayBaudRate);
+                    serialPort1.BaudRate = Convert.ToInt32(comboBoxDisplayBaudRate.Text);
                     serialPort1.Open();
                     progressBar1.Value = 100;
                     // Set enabled property to minimize user error
@@ -49,15 +55,20 @@ namespace SerialPortComm
                     btnClosePort.Enabled = true;
                 }
             }
-            catch(Exception ex)
+            catch(UnauthorizedAccessException)
             {
-                if(ex.Message == "UnauthorizedAccessException")
+                txtBoxReceivedMsg.Text = "Unauthorized Access";
+                if(DEBUG)
                 {
-                    txtBoxReceivedMsg.Text = "Unauthorized Access";
+                    txtBoxReceivedMsg.Text = "This is the Unauthorized Access exception block for the Open Port button.";
                 }
-                else
+            }
+            catch (Exception ex)
+            {
+                txtBoxReceivedMsg.Text = ex.Message;
+                if (DEBUG)
                 {
-                    txtBoxReceivedMsg.Text = ex.Message;
+                    txtBoxReceivedMsg.Text = "This is the general exception block for the Open Port button.";
                 }
             }
         }
@@ -65,14 +76,26 @@ namespace SerialPortComm
         // Close port connection
         private void btnClosePort_Click(object sender, EventArgs e)
         {
-            serialPort1.Close();
-            progressBar1.Value = 0;
-            // Set enabled property to minimize user error
-            btnSendMsg.Enabled = false;
-            btnReadMsg.Enabled = false;
-            txtBoxSendMsg.Enabled = false;
-            btnOpenPort.Enabled = true;
-            btnClosePort.Enabled = false;
+            try
+            {
+                serialPort1.Close();
+                progressBar1.Value = 0;
+                // Set enabled property to minimize user error
+                btnSendMsg.Enabled = false;
+                btnReadMsg.Enabled = false;
+                txtBoxSendMsg.Enabled = false;
+                btnOpenPort.Enabled = true;
+                btnClosePort.Enabled = false;
+            }
+            catch(Exception ex)
+            {
+                txtBoxReceivedMsg.Text = ex.Message;
+                if (DEBUG)
+                {
+                    txtBoxReceivedMsg.Text = "This is the general exception block for the Close Port button.";
+                }
+            }
+           
         }
 
         // Send message over serial port
@@ -89,15 +112,20 @@ namespace SerialPortComm
             {
                 txtBoxReceivedMsg.Text = serialPort1.ReadLine();
             }
-            catch(Exception ex)
+            catch(TimeoutException)
             {
-                if (ex.Message == "TimeoutException")
+                txtBoxReceivedMsg.Text = "Timeout Exception";
+                if (DEBUG)
                 {
-                    txtBoxReceivedMsg.Text = "Timeout Exception";
+                    txtBoxReceivedMsg.Text = "This is the Timeout exception block for the Read button.";
                 }
-                else
+            }
+            catch (Exception ex)
+            {
+                txtBoxReceivedMsg.Text = ex.Message;
+                if (DEBUG)
                 {
-                    txtBoxReceivedMsg.Text = ex.Message;
+                    txtBoxReceivedMsg.Text = "This is the general exception block for the Read button.";
                 }
             }
         }
